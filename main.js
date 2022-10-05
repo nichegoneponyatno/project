@@ -1,36 +1,38 @@
-"use strict"
+"use strict";
 
-if (4 == 9) {
-    console.log('ok');
-} else {
-    console.log('error')
-};
-
-const num = 101;
-if (num < 49) {
-    console.log('error')
-} else if (num > 100) {
-    console.log('mnogo')
-} else {
-    console.log('ok')
-};
-
-
-(num === 50) ? console.log('ok') : console.log('error');
-
-const NUM = 55;
-
-switch (NUM) {
-    case 49:
-        console.log('neverno');
-        break;
-        case 100:
-            console.log('neverno');
-            break;
-            case 50:
-                console.log('v tochku');
-                break;
-                default:
-                    console.log('ne v etot raz');
-                break;
+for (let i = 0; i < 3; i++) {
+    console.log(i);
+    for (let j = 0; j < 3; j++) {
+        console.log(j);
+    }
 }
+
+// let result = '';
+// const length = 8;
+
+// for (let i = 1; i < length; i++) {
+//     for (let j = 0; j < i; j++) {
+//         result += "*";
+//     }
+
+
+//     result += '\n';
+// }
+
+
+
+
+
+// console.log(result);
+
+let result = '';
+const length = 7;
+for (let i =  1; i < 7; i++) {
+    for (let j = 0; j < i; j++) {
+        result += "*";
+    }
+    result += '\n';
+}
+
+console.log(result);
+
