@@ -1,68 +1,93 @@
 "use strict";
 
-// function first() {
-//     //Do something
-//     setTimeout(function() {
-//         console.log(1);
-//     }, 500);
-// }
+let a = 5,
+    b = a;
 
-// function second() {
-//     console.log(2);
-// }
-
-// first();
-// second();
+b = b + 5;
 
 
-// function learnJS(lang, callback) {
-//     console.log(`Я учу: ${lang}`);
-//     callback();
-// }
 
-// function done() {
-//     console.log('Я прошел этот урок!');
-// }
+const obj = {
+    a: 5,
+    b: 1
+};
 
-// learnJS('JavaScript', done);
+const copy = obj;
+
+copy.a = 10;
+console.log(copy);
+console.log(obj);
+
+function copy(mainObj) {
+    let objCopy = {};
+
+    let key;
+    for (key in mainObj) {
+        objCopy[key] = mainObj[key];
+    }
+
+    return objCopy;
+}
 
 
-const options = {
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        bg: 'red'
-    },
-    makeTest: function() {
-        console.log('test');
+const numbers = {
+    a: 2,
+    b: 5,
+    c: {
+        x: 7,
+        y: 4
     }
 };
 
-options.makeTest();
+const newNumbers = copy(numbers);
 
-const {border, bg} = options.colors;
-console.log(border);
+newNumbers.a = 10;
+newNumbers.c.x = 10;
 
-console.log(Object.keys(options));
+console.log(newNumbers);
+console.log(numbers);
 
-// console.log(options.name);
-// 
-// delete options.name;
+const add = {
+    d: 17,
+    e: 20
+};
 
-// console.log(options); 
-let counter = 0;
-for (let key in options) {
-    if (typeof(options[key]) === 'object') {
-        for (let i in options[key]) {
-            console.log(`свойство ${i} имеет значение ${options[key][i]}`);
-            counter++;
-        }
-    } else {
-    console.log(`свойство ${key} имеет значение ${options[key]}`);
-    counter++;
-    }
+console.log(Object.assign(numbers, add));
+
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();
+
+newArray[2] = 'done';
+
+console.log(newArray);
+console.log(oldArray);
+
+const video = ['youtube', 'vimeo', 'rutube'];
+      blogs = ['wordpress', 'livejournal', 'blogger'],
+      internet = [...video, ...blogs, 'vk', 'facebook'];
+
+      console.log(internet);
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
 }
 
-console.log(counter);
+const num = [2, 5, 7];
+
+log(...num);
+
+const array = ['a', 'b', 'c'];
+
+const newAaray = [...array];
+console.log(newAaray);
+
+const q = {
+    one: 1,
+    two: 2
+};
+
+const newObj = {...q};
+console.log(newObj);
+
