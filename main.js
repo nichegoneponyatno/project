@@ -1,93 +1,49 @@
 "use strict";
 
-let a = 5,
-    b = a;
+let numberOfFilms;
+function start() {
+    numberOfFilms = +prompt('Сколько фильмов вы кже посмотрели?', '');
 
-b = b + 5;
+    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+    }
+}
+start();
 
-
-
-const obj = {
-    a: 5,
-    b: 1
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+    start: 
 };
 
-const copy = obj;
-
-copy.a = 10;
-console.log(copy);
-console.log(obj);
-
-function copy(mainObj) {
-    let objCopy = {};
-
-    let key;
-    for (key in mainObj) {
-        objCopy[key] = mainObj[key];
+function rememberMyFilms() {
+    for(let i = 0; i < 2; i++) {
+        const a = prompt('Один из последних просмотренных фильмов?', ''),
+              b = prompt('На сколько оцените его?', '');
+              if(a != null && b != null && a != '' && b != '' && a.length < 50) {
+                personalMovieDB.movies[a] = b;
+                console.log('done');
+              } else {
+                console.log('error');
+                i--;
+              }
     }
-
-    return objCopy;
 }
 
+rememberMyFilms();
 
-const numbers = {
-    a: 2,
-    b: 5,
-    c: {
-        x: 7,
-        y: 4
+function detectPersonalLevel() {
+    if (personalMovieDB.count < 10) {
+        console.log('Просмотрено довольно мало фильмов');
+    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+        console.log('Вы классический зритель');
+    } else if (personalMovieDB.count <= 30) {
+        console.log('Вы киноман');
+    } else {
+        console.log('Произошла ошибка');
     }
-};
-
-const newNumbers = copy(numbers);
-
-newNumbers.a = 10;
-newNumbers.c.x = 10;
-
-console.log(newNumbers);
-console.log(numbers);
-
-const add = {
-    d: 17,
-    e: 20
-};
-
-console.log(Object.assign(numbers, add));
-
-const oldArray = ['a', 'b', 'c'];
-const newArray = oldArray.slice();
-
-newArray[2] = 'done';
-
-console.log(newArray);
-console.log(oldArray);
-
-const video = ['youtube', 'vimeo', 'rutube'];
-      blogs = ['wordpress', 'livejournal', 'blogger'],
-      internet = [...video, ...blogs, 'vk', 'facebook'];
-
-      console.log(internet);
-
-function log(a, b, c) {
-    console.log(a);
-    console.log(b);
-    console.log(c);
 }
-
-const num = [2, 5, 7];
-
-log(...num);
-
-const array = ['a', 'b', 'c'];
-
-const newAaray = [...array];
-console.log(newAaray);
-
-const q = {
-    one: 1,
-    two: 2
-};
-
-const newObj = {...q};
-console.log(newObj);
-
+detectPersonalLevel();
