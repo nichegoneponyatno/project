@@ -1,49 +1,99 @@
 "use strict";
 
-let numberOfFilms;
-function start() {
-    numberOfFilms = +prompt('Сколько фильмов вы кже посмотрели?', '');
 
-    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
-    }
-}
-start();
+// let i = 0;
+// while(i < 10) {
+// console.log(i);
+// i++;
+// }
 
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false,
-    start: 
-};
+// do {
+//     console.log('action');
+// } while(i < 0);
 
-function rememberMyFilms() {
-    for(let i = 0; i < 2; i++) {
-        const a = prompt('Один из последних просмотренных фильмов?', ''),
-              b = prompt('На сколько оцените его?', '');
-              if(a != null && b != null && a != '' && b != '' && a.length < 50) {
-                personalMovieDB.movies[a] = b;
-                console.log('done');
-              } else {
-                console.log('error');
-                i--;
-              }
-    }
-}
+// for (let i = 0; i < 10; i++) {
+//     console.log(i);
+// }
 
-rememberMyFilms();
 
-function detectPersonalLevel() {
-    if (personalMovieDB.count < 10) {
-        console.log('Просмотрено довольно мало фильмов');
-    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-        console.log('Вы классический зритель');
-    } else if (personalMovieDB.count <= 30) {
-        console.log('Вы киноман');
-    } else {
-        console.log('Произошла ошибка');
-    }
-}
-detectPersonalLevel();
+// let str = 'Hello';
+// let res = '';
+// for (let i = 0; i < str.length; i++) {
+//     console.log(str[i]);
+// }
+
+// let colors = ['white', 'black', 'pink', 'orange'];
+
+// for (let i = 0; i < colors.length; i++) {
+// colors[i] = colors[i].toUpperCase();
+// }
+// console.log(colors);
+
+// function firstTask() {
+//     for (let i = 5; i <= 10; i++) {
+//         console.log(i);
+//     }
+// }
+//     firstTask()
+// 
+
+// for (let i = 2; i <= 16; i++) {
+//     if (i % 2 === 0) {
+//         continue;
+//     } else {
+//         console.log(i);
+//     }
+// }
+
+
+// let i = 3;
+// function fourthTask() {
+    
+
+//     while (i <= 16) {
+//         if (i % 2 === 0) {
+//             i++;
+//             continue;
+//         } else {
+//             console.log(i);
+//         }
+//         i++;
+//     }
+    
+// }
+// fourthTask()
+
+// if (4 === '4') {
+//     console.log('ok');
+// } else {
+//     console.log('error');
+// }
+
+// const num = 50;
+
+// // if (num < 49) {
+// //     console.log('error');
+// // } else if (num > 100) {
+// // console.log('to much');
+// // } else { 
+// // console.log('ok');
+// // }
+
+// // const NUM = 46;
+// // (NUM === 50) ? console.log('ok') : console.log('error');
+
+// switch (num) {
+//     case 49:
+//         console.log('not true');
+//         break;
+//         case 52:
+//             console.log('not true');
+//             break;
+//             case 50: 
+//             console.log('true');
+//             break;
+//             default: console.log('not today');
+//             break;
+// }
+
+const num = 50;
