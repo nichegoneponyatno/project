@@ -1,99 +1,72 @@
-"use strict";
+const model = [
+{type: 'title', value: 'Hello World from JS'},
+{type: 'text', value: 'here we go with some text'},
+{type: 'columns', value: [
+    '111111111',
+    '222222222',
+    '333333333',
+    '444444444'
+]}
+{type: 'image', value: './assets/image.png'}
+]
+
+const $site = document.querySelector('#site');
+
+model.forEach(block => {
+
+let html = '';
+
+    if (block.type === 'title') {
+        html = title(block)
+    } else if (block.type === 'text') {
+        html = text(block)
+    } else if (block.type === 'columns') {
+html = columns(block)
+    }     else if (block.type === 'image') {
+      html = image(block)
+          }
+      
 
 
-// let i = 0;
-// while(i < 10) {
-// console.log(i);
-// i++;
-// }
+    $site.insertAdjacentHTML('beforeend', html);
+  })
 
-// do {
-//     console.log('action');
-// } while(i < 0);
+function title(block) {
+return `
+<div class="row">
+<div class="col-sm">
+  <p>${block.value}</p>
+</div>
+</div>
+`
+}
 
-// for (let i = 0; i < 10; i++) {
-//     console.log(i);
-// }
+function text(block) {
+return `
+<div class="row">
+div class="col-sm">
+<p>${block.value}<p>
+</div>
+</div>
 
+`
+}
 
-// let str = 'Hello';
-// let res = '';
-// for (let i = 0; i < str.length; i++) {
-//     console.log(str[i]);
-// }
+function columns(block) {
+  const html = block.value.map(item => `<div class="col-sm">
+  ${item}
+</div>`)
+  return `
+  <div class="row">
+  ${html.join('')}
+</div>
+  `
+}
 
-// let colors = ['white', 'black', 'pink', 'orange'];
-
-// for (let i = 0; i < colors.length; i++) {
-// colors[i] = colors[i].toUpperCase();
-// }
-// console.log(colors);
-
-// function firstTask() {
-//     for (let i = 5; i <= 10; i++) {
-//         console.log(i);
-//     }
-// }
-//     firstTask()
-// 
-
-// for (let i = 2; i <= 16; i++) {
-//     if (i % 2 === 0) {
-//         continue;
-//     } else {
-//         console.log(i);
-//     }
-// }
-
-
-// let i = 3;
-// function fourthTask() {
-    
-
-//     while (i <= 16) {
-//         if (i % 2 === 0) {
-//             i++;
-//             continue;
-//         } else {
-//             console.log(i);
-//         }
-//         i++;
-//     }
-    
-// }
-// fourthTask()
-
-// if (4 === '4') {
-//     console.log('ok');
-// } else {
-//     console.log('error');
-// }
-
-// const num = 50;
-
-// // if (num < 49) {
-// //     console.log('error');
-// // } else if (num > 100) {
-// // console.log('to much');
-// // } else { 
-// // console.log('ok');
-// // }
-
-// // const NUM = 46;
-// // (NUM === 50) ? console.log('ok') : console.log('error');
-
-// switch (num) {
-//     case 49:
-//         console.log('not true');
-//         break;
-//         case 52:
-//             console.log('not true');
-//             break;
-//             case 50: 
-//             console.log('true');
-//             break;
-//             default: console.log('not today');
-//             break;
-// }
-
-const num = 50;
+function image(block) {
+  return `
+  <div class="row">
+<img src="${block.value}" />
+  </div>
+  `
+}
